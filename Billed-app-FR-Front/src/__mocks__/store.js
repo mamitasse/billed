@@ -12,7 +12,7 @@ const mockedBills = {
       "date": "2004-04-04",
       "amount": 400,
       "commentAdmin": "ok",
-      "email": "a@au.fr",
+      "email": "a@a",
       "pct": 20
     },
       {
@@ -24,7 +24,7 @@ const mockedBills = {
         "commentary": "plop",
         "pct": 20,
         "type": "Transports",
-        "email": "a@au.fr",
+        "email": "a@a",
         "fileUrl": "https://test.storage.tld/v0/b/billable-677b6.a…61.jpeg?alt=media&token=7685cd61-c112-42bc-9929-8a799bb82d8b",
         "date": "2001-01-01",
         "status": "refused",
@@ -33,7 +33,7 @@ const mockedBills = {
       {
         "id": "UIUZtnPQvnbFnB0ozvJh",
         "name": "test3",
-        "email": "a@au.fr",
+        "email": "a@a",
         "type": "Services en ligne",
         "vat": "60",
         "pct": 20,
@@ -50,7 +50,7 @@ const mockedBills = {
         "status": "refused",
         "pct": 20,
         "amount": 200,
-        "email": "a@au.fr",
+        "email": "a@a",
         "name": "test2",
         "vat": "40",
         "fileName": "preview-facture-free-201801-pdf-1.jpg",
@@ -63,6 +63,7 @@ const mockedBills = {
 
   },
   create(bill) {
+    console.log('Mock create method called with:', bill);
     return Promise.resolve({fileUrl: 'https://localhost:3456/images/test.jpg', key: '1234'})
   },
   update(bill) {
@@ -78,7 +79,7 @@ const mockedBills = {
       "date": "2004-04-04",
       "amount": 400,
       "commentAdmin": "ok",
-      "email": "a@au.fr",
+      "email": "a@a",
       "pct": 20
     })
   },

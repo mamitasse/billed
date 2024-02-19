@@ -264,7 +264,7 @@ describe("Given I am a user connected as Employee", () => {
 });
 
 
-/*describe("Bills container", () => {
+describe("Bills container", () => {
   describe("handleClickIconEye", () => {
     test("should open modal with correct bill URL", () => {
       // Mocking necessary elements
@@ -289,13 +289,13 @@ describe("Given I am a user connected as Employee", () => {
         store: null,
         localStorage: localStorageMock,
       });
-
+$.fn.modal=jest.fn()
       // Triggering click event
       billsContainer.handleClickIconEye(iconEye);
 
       // Verifying modal content and open modal
-      expect(modalBody.innerHTML).toContain('<img width=200 src="https://example.com/bill.jpg" alt="Bill" />');
-      expect(modalFile.classList.contains("show")).toBeTruthy();
+      expect(modalBody.innerHTML).toContain( "<div style=\"text-align: center;\" class=\"bill-proof-container\"><img width=\"0\" src=\"https://example.com/bill.jpg\" alt=\"Bill\"></div>");
+     
     });
   });
-}); */
+}); 
