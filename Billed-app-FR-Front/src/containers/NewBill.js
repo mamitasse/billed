@@ -27,7 +27,8 @@ export default class NewBill {
     if (!['jpg', 'jpeg', 'png'].some(ext => fileName.toLowerCase().endsWith(ext))) {
         // Affiche un message d'erreur ou empêche l'envoi du formulaire.
         console.log("fichier recu:"+fileName)
-        return console.error("L'extension du fichier n'est pas autorisée.");
+        alert("File extension not supported");
+        e.target.value = "";
     }
     
     formData.append('file', file);

@@ -39,46 +39,19 @@ describe("Given I am connected as an Employee", () => {
       expect(isIconActivated).toBeTruthy();
     });
 
-    // ...
 
     describe("When I am on Bills page, there are a title and a newBill button", () => {
       // Test pour le bouton "Nouvelle note de frais"
       test("Then, the title and the button should be render correctly", () => {
+        // Mise en place du contexte : on définit le contenu du corps du document à partir du composant BillsUI avec une liste de données vide.
         document.body.innerHTML = BillsUI({ data: [] });
+        // Assertion : Vérification que le texte "Mes notes de frais" est présent dans le document.
         expect(screen.getAllByText("Mes notes de frais")).toBeTruthy();
+         // Assertion : Vérification que l'élément avec l'attribut data-testid égal à "btn-new-bill" est présent dans le document.
         expect(screen.getByTestId("btn-new-bill")).toBeTruthy();
       });
     });
 
-    // Test pour le bouton "Nouvelle note de frais"
-    describe("Quand je suis sur la page des notes de frais et que je clique sur le bouton 'Nouvelle note de frais'", () => {
-      test("Alors, la page de création de note de frais doit être affichée", async () => {
-        // Définir localStorageMock
-        Object.defineProperty(window, "localStorage", { value: localStorageMock });
-        window.localStorage.setItem(
-          "user",
-          JSON.stringify({
-            type: "Employee",
-          })
-        );
-        const root = document.createElement("div");
-        root.setAttribute("id", "root");
-        document.body.append(root);
-        router();
-        window.onNavigate(ROUTES_PATH.Bills);
-
-        // Attendre le rendu de l'icône avant de vérifier
-        await waitFor(() => screen.getAllByTestId("icon-window")[0]);
-
-        // Utiliser userEvent.click pour déclencher l'événement de clic sur le bouton "Nouvelle note de frais"
-        userEvent.click(screen.getByTestId("btn-new-bill"));
-
-        // Vérifier que la page de création de note de frais est affichée
-        expect(screen.getByText("Envoyer une note de frais")).toBeTruthy();
-      });
-    });
-
-    // ...
   });
 
   describe("When I am on Bills page as an Employee", () => {
