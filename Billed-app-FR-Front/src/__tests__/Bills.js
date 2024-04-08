@@ -146,36 +146,6 @@ describe("Given I am connected as Employee and I am on Bill page, there is a new
   });
 });
 
-describe("Given I am connected as Employee and I am on Bill page, there are a newBill button", () => {
-  describe("When clicking on newBill button", () => {
-    test("Then, bill form should open", () => {
-      Object.defineProperty(window, "localStorage", { value: localStorageMock });
-      window.localStorage.setItem(
-        "user",
-        JSON.stringify({
-          type: "Employee",
-        })
-      );
-      document.body.innerHTML = BillsUI({ data: [] });
-      const onNavigate = (pathname) => {
-        document.body.innerHTML = ROUTES({ pathname });
-      };
-      const store = null;
-      const bill = new Bills({
-        document,
-        onNavigate,
-        store,
-        localStorage: window.localStorage,
-      });
-
-      const handleClickNewBill = jest.fn(() => bill.handleClickNewBill());
-      screen.getByTestId("btn-new-bill").addEventListener("click", handleClickNewBill);
-      userEvent.click(screen.getByTestId("btn-new-bill"));
-      expect(handleClickNewBill).toHaveBeenCalled();
-      expect(screen.getByText("Envoyer une note de frais")).toBeTruthy();
-    });
-  });
-});
 
 // Test d'intégration GET
 describe("Given I am a user connected as Employee", () => {
