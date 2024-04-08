@@ -36,7 +36,7 @@ getBills = () => {
         console.log(snapshot)
         const bills = snapshot
       
-       .sort((b, a) => new Date(a.date).getTime() - new Date(b.date).getTime())
+       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
           .map(doc => {
             try {
